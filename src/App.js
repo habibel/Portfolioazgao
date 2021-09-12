@@ -1,24 +1,46 @@
-import logo from './logo.svg';
+import React, {useState , useEffect} from 'react';
 import './App.css';
+import Loadingpage from './components/LoadingComponent'
+import { BrowserRouter as Router , Switch, Route } from 'react-router-dom';
+import Home from './pages'
+import Terms from './pages/terms'
+import Cv from './pages/cv'
+import project from './pages/project'
 
 function App() {
+
+    const [loading , setLoading ] = useState(false)
+    useEffect(() => {
+      setLoading(true);
+      setTimeout(() =>{
+        setLoading(false);
+      },7000);
+    },[]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+    
+        {
+      loading ? (<Loadingpage />):
+      ( <Router>
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path='/termsofservices' component={Terms}  />
+            <Route path="/cv" component={Cv} />
+            <Route path='/project' component={project} exact />
+          </Switch>      
+        </Router>
+      )
+    }
+
+    
+    
+        {/* <Router>
+         <Terms />
+        </Router> */}
+
+    </>
   );
 }
 

@@ -1,0 +1,18 @@
+export const aboutData = {
+    id:'About',
+    lightBg: true,
+    lightText: true,
+    lightTextDes: true,
+    topline: 'Let me introduce my self',
+    headline: 'About me',
+    description: 'My name is habib azgao, im full-stack developer, 2years of experience as a freelancer web design and graphic designer ',
+    ButtonLabel1: 'My Cv',
+    ButtonLabel2: 'My works',
+    imgStart: false,
+    img1: require('../../images/aboutsec1.jpeg').default,
+    img2: require('../../images/aboutsec2.png').default,
+    alt: '',
+    dark: true,
+    primary: true,
+    darktext: false,
+}
